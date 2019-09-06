@@ -13,12 +13,15 @@ import javax.validation.constraints.Size;
 
 import org.springframework.hateoas.ResourceSupport;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonFilter;
+
+//import com.fasterxml.jackson.annotation.JsonIgnore;
+//import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @Entity
 @Table(name = "USER")
-@JsonIgnoreProperties({"firstName","lastName"})
+//@JsonIgnoreProperties({"firstName","lastName"}) --- static filtering @JsonIgnoreProperties
+@JsonFilter(value = "userFilter")
 public class User extends ResourceSupport {
 	
 	@Id
@@ -44,7 +47,7 @@ public class User extends ResourceSupport {
 	
 	@Column(name="SSN", length=50, nullable=false, unique=true)
 	//@Column(name="SSN", length=50, nullable=true, unique=true)
-	@JsonIgnore
+	//@JsonIgnore  ---static filtering @JsonIgnore
 	private String ssn;
 	
 	@OneToMany(mappedBy = "user")
