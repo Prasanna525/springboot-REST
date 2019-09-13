@@ -1,6 +1,6 @@
-insert into user values(101, 'prasanna@gmail.com', 'Prasanna', 'Kumar', 'admin', 'ssn101', 'dspk');
-insert into user values(102, 'santu@gmail.com', 'Santhosh', 'Naidu', 'admin', 'ssn102', 'santu');
-insert into user values(103, 'sampu@burning.com', 'Sampoornesh', 'Babu', 'admin', 'ssn103', 'sampu');    
+insert into user values(101,'Bengaluru', 'prasanna@gmail.com', 'Prasanna', 'Kumar', 'admin', 'ssn101', 'dspk');
+insert into user values(102,'Chinthamani', 'santu@gmail.com', 'Santhosh', 'Naidu', 'admin', 'ssn102', 'santu');
+insert into user values(103, 'New York', 'sampu@burning.com', 'Sampoornesh', 'Babu', 'admin', 'ssn103', 'sampu');    
 insert into orders values(2001,'order11',101);
 insert into orders values(2002,'order12',101);
 insert into orders values(2003,'order13',101);

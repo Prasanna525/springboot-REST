@@ -62,21 +62,31 @@ public class User extends ResourceSupport {
 	@OneToMany(mappedBy = "user")
 	@JsonView(Views.Internal.class)
 	private List<Order> orders;
+	
+	@Column(name="ADDRESS")
+	public String address;
 
 	public User() {
 		
 	}
 
-	public User(Long id, String userName, String firstName, String lastName, String email, String role, String ssn) {
-		
-		this.userId = id;
+	
+	public User(Long userId,
+			@NotEmpty(message = "Username is mandatory field. Please provide username") String userName,
+			@Size(min = 2, message = "Firstname should have atleast 2 characters") String firstName, String lastName,
+			String email, String role, String ssn, List<Order> orders, String address) {
+	
+		this.userId = userId;
 		this.userName = userName;
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.email = email;
 		this.role = role;
 		this.ssn = ssn;
+		this.orders = orders;
+		this.address = address;
 	}
+
 
 	public Long getUserId() {
 		return userId;
@@ -143,13 +153,29 @@ public class User extends ResourceSupport {
 	public void setOrders(List<Order> orders) {
 		this.orders = orders;
 	}
+	
+	
+
+	public String getAddress() {
+		return address;
+	}
+
+
+	public void setAddress(String address) {
+		this.address = address;
+	}
 
 	//optional for bean logging
 	@Override
 	public String toString() {
-		return "User [id=" + userId + ", userName=" + userName + ", firstName=" + firstName + ", lastName=" + lastName
-				+ ", email=" + email + ", role=" + role + ", ssn=" + ssn + "]";
+		return "User [userId=" + userId + ", userName=" + userName + ", firstName=" + firstName + ", lastName="
+				+ lastName + ", email=" + email + ", role=" + role + ", ssn=" + ssn + ", orders=" + orders
+				+ ", address=" + address + "]";
 	}
+
+
+	
+	
 	
 	
 	
