@@ -31,7 +31,7 @@ public class SwaggerConfig {
 	}
 	
 	//Swagger metadata URL : http://localhost:8080/v2/api-docs
-	//Swagger UI URL       : 
+	//Swagger UI URL       : http://localhost:8080/swagger-ui.html
 
 	private ApiInfo getApiInfo() {
 		
